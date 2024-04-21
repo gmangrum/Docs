@@ -13,7 +13,10 @@
     <body>
         <script>
             var converter = new showdown.Converter();
-            var text = '# hello, markdown!';
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", "https://gmangrum.github.io/docs/index.md", false);
+            xmlHttp.send(null);
+            var text = xmlHttp.responseText;
             var html = converter.makeHtml(text);
             document.body.innerHTML = html;
         </script>
